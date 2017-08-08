@@ -1,0 +1,46 @@
+{
+  "name": "react-native-stateview",
+  "version": "1.0.0",
+  "description": "A react native wrapper view to add loading, content, error and placeholder states to your component",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "lint": "eslint lib",
+    "test": "npm run lint",
+    "flow": "flow check"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LifCare/react-native-stateview.git"
+  },
+   "tags": [
+    "react",
+    "react-native",
+    "react-component"
+  ],
+  "keywords": [
+    "react",
+    "react-native",
+    "loading",
+    "error",
+    "content",
+    "placeholder",
+    "state",
+    "react-component"
+  ],
+  "author": "Sourabh Verma <sourabh.coder@gmail.com> (https://github.com/sourabhv)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/LifCare/react-native-stateview/issues"
+  },
+  "homepage": "https://github.com/LifCare/react-native-stateview#readme",
+  "devDependencies": {
+    "babel-eslint": "^6.0.4",
+    "eslint": "^3.17.1",
+    "eslint-plugin-flowtype": "^2.35.0",
+    "eslint-plugin-react": "^7.1.0",
+    "flow-bin": "0.47.0"
+  }
+}
