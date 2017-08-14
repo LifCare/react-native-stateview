@@ -51,7 +51,14 @@ export default class App extends React.Component {
         super(props);
         this.state = {
             mode: StateView.Mode.content,
-            refreshing: false
+            refreshing: false,
+            modes: [
+                {id: 0, name: "Loading", mode: StateView.Mode.loading, selected: false},
+                {id: 1, name: "Content", mode: StateView.Mode.content, selected: false},
+                {id: 2, name: "Error", mode: StateView.Mode.error, selected: false},
+                {id: 3, name: "Placeholder", mode: StateView.Mode.placeholder, selected: false}
+            ]
+
         }
     }
 
@@ -84,22 +91,14 @@ export default class App extends React.Component {
 
                 </StateView>
                 <View style={styles.actionsContainer}>
-                    <Button
-                        textStyle={styles.actionTextStyle}
-                        onPress={() => this.setState({mode: StateView.Mode.loading})}
-                        title="Loading"/>
-                    <Button
-                        textStyle={styles.actionTextStyle}
-                        onPress={() => this.setState({mode: StateView.Mode.content})}
-                        title="Content"/>
-                    <Button
-                        textStyle={styles.actionTextStyle}
-                        onPress={() => this.setState({mode: StateView.Mode.error})}
-                        title="Error"/>
-                    <Button
-                        textStyle={styles.actionTextStyle}
-                        onPress={() => this.setState({mode: StateView.Mode.placeholder})}
-                        title="Placeholder"/>
+                    {
+                        this.state.modes.map((item) => {
+                            return <Text
+                                key={item.id}
+                                style={this.state.mode===item.mode?styles.selected:styles.normal}
+                                onPress={() => this.setState({mode: item.mode})}>{item.name}</Text>
+                        })
+                    }
                 </View>
             </View>
         );
@@ -114,9 +113,27 @@ const styles = StyleSheet.create({
         justifyContent: 'center',
     },
     actionsContainer: {
-        flexDirection: 'row'
+        flexDirection: 'row',
+        justifyContent: 'space-between',
     },
-    actionTextStyle: {
-        fontSize: 8
+    normal: {
+        fontSize: 14,
+        paddingBottom: 12,
+        paddingTop: 12,
+        marginLeft: 2,
+        textAlign:"center",
+        flex: 1,
+        backgroundColor: "#fff",
+        color: "#5430ec"
+    },
+    selected: {
+        fontSize: 14,
+        paddingBottom: 12,
+        paddingTop: 12,
+        marginLeft: 2,
+        textAlign:"center",
+        flex: 1,
+        backgroundColor: "#5430ec",
+        color: "#fff"
     }
 });
