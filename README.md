@@ -45,6 +45,7 @@ import StateView from 'react-native-stateview'
 There are some props which you can use to configure the `StateView`, as given below in API section, but all of them are *optional*.
 
 ##API
+
 ###Props
 
 | **Prop** | **Type** | **Defaults** | **Description** |

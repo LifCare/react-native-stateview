@@ -1,7 +1,6 @@
 import React from 'react';
 import {
     StyleSheet,
-    Button,
     Text,
     View,
     Image,
@@ -10,7 +9,6 @@ import {
 } from 'react-native';
 import StateView from 'react-native-stateview'
 import dishes from './dishes'
-
 
 export default class App extends React.Component {
 
@@ -53,10 +51,10 @@ export default class App extends React.Component {
             mode: StateView.Mode.content,
             refreshing: false,
             modes: [
-                {id: 0, name: "Loading", mode: StateView.Mode.loading, selected: false},
-                {id: 1, name: "Content", mode: StateView.Mode.content, selected: false},
-                {id: 2, name: "Error", mode: StateView.Mode.error, selected: false},
-                {id: 3, name: "Placeholder", mode: StateView.Mode.placeholder, selected: false}
+                {id: 0, name: "Loading", mode: StateView.Mode.loading},
+                {id: 1, name: "Content", mode: StateView.Mode.content},
+                {id: 2, name: "Error", mode: StateView.Mode.error},
+                {id: 3, name: "Placeholder", mode: StateView.Mode.placeholder}
             ]
 
         }
@@ -81,7 +79,7 @@ export default class App extends React.Component {
                     errorButtonAction={() => this._handleRefresh(0)}
                 >
                     <FlatList
-                        style={{flex: 1}}
+                        style={{flex: 1, marginTop: 20, overflow: 'visible'}}
                         data={dishes}
                         renderItem={this._renderItem}
                         refreshing={this.state.refreshing}
@@ -93,10 +91,14 @@ export default class App extends React.Component {
                 <View style={styles.actionsContainer}>
                     {
                         this.state.modes.map((item) => {
-                            return <Text
-                                key={item.id}
-                                style={this.state.mode===item.mode?styles.selected:styles.normal}
-                                onPress={() => this.setState({mode: item.mode})}>{item.name}</Text>
+                            return (
+                                <Text
+                                    key={item.id}
+                                    style={this.state.mode === item.mode ? styles.selected : styles.normal}
+                                    onPress={() => this.setState({mode: item.mode})}>
+                                    {item.name}
+                                </Text>
+                            )
                         })
                     }
                 </View>
@@ -115,24 +117,22 @@ const styles = StyleSheet.create({
     actionsContainer: {
         flexDirection: 'row',
         justifyContent: 'space-between',
+        borderTopWidth: 1,
+        borderTopColor: "rgb(240,240,240)"
     },
     normal: {
-        fontSize: 14,
-        paddingBottom: 12,
-        paddingTop: 12,
-        marginLeft: 2,
-        textAlign:"center",
         flex: 1,
+        paddingVertical: 10,
+        fontSize: 14,
+        textAlign: "center",
         backgroundColor: "#fff",
         color: "#5430ec"
     },
     selected: {
-        fontSize: 14,
-        paddingBottom: 12,
-        paddingTop: 12,
-        marginLeft: 2,
-        textAlign:"center",
         flex: 1,
+        paddingVertical: 10,
+        fontSize: 14,
+        textAlign: "center",
         backgroundColor: "#5430ec",
         color: "#fff"
     }
