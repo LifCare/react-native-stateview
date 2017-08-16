@@ -3,7 +3,9 @@
 A react native wrapper view to add `loading`, `content`, `error` and `placeholder` states to your component
 
 <p align="center">
-<img style="box-shadow: 0 2px 8px 2px rgba(0,0,0,.1)" src="art/demo.gif" alt="" width="300">
+    <img style="box-shadow: 0 2px 8px 2px rgba(0,0,0,.1)" src="art/demo_ios.gif" alt="" width="300">
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+    <img style="box-shadow: 0 2px 8px 2px rgba(0,0,0,.1)" src="art/demo_android.gif" alt="" width="300">
 </p>
 
 ###Expo
