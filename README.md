@@ -50,24 +50,41 @@ There are some props which you can use to configure the `StateView`, as given be
 
 ###Props
 
-| **Prop** | **Type** | **Defaults** | **Description** |
-|----------|----------|--------------|-----------------|
-| `mode` | `string` | `StateView.Mode.content` | The mode of StateView is in. One of `loading`, `content`, `error` and `placeholder` |
-| `style` | `object` | - | Style of content view |
-| `loadingView` | `object` | `undefined` | A custom loading view |
-| `loadingTitle` | `string` | `""` | The title for the default loading view |
-| `placeholderView` | `` | `undefined` | A custom placeholder view |
-| `placeholderImageRes` | `number` | `undefined` | Image resource id of the placeholder view image |
-| `placeholderTitle` | `string` | `""` | Title text of the placeholder view |
-| `placeholderBody` | `string` | `""` | Body text of the placeholder view |
-| `placeholderButtonText` | `string` | `undefined` | Action button text of the placeholder view |
-| `placeholderButtonAction` | `() => undefined` | `undefined` | Function that is executed when the placeholder view button is clicked. The button is not rendered if this is `null` or `undefined` |
-| `errorView` | `object` | `undefined` | A custom error view |
-| `errorImageRes` | `number` | `undefined` | Image resource id of the error view image |
-| `errorTitle` | `string` | `""` | Title text of the error view |
-| `errorBody` | `string` | `""` | Body text of the error view |
-| `errorButtonText` | `string` | `undefined` | Action button text of the error view |
-| `errorButtonAction` | `() => undefined` | `undefined` | Function that is executed when the error view button is clicked. The button is not rendered if this is `null` or `undefined` |
+| **Prop** | **Type** | **Defaults** | **Required** | **Description** |
+|----------|----------|--------------|--------------|-----------------|
+| `containerStyle` | `PropTypes.object` | `{}` |  | Style of container view |
+| `state` | `PropTypes.oneOf([StateView.State.loading, StateView.State.placeholder, StateView.State.error, StateView.State.content])` | `StateView.State.loading` |  | The mode of StateView is in. One of `loading`, `content`, `error` and `placeholder` |
+| `color` | `PropTypes.string` | `'#000'` |  | A general tint color for all views |
+| `imageStyle` | `PropTypes.object` | `{}` |  | ... |
+| `titleStyle` | `PropTypes.object` | `{}` |  | ... |
+| `bodyStyle` | `PropTypes.object` | `{}` |  | ... |
+| `buttonStyle` | `PropTypes.object` | `{}` |  | ... |
+| `loadingView` | `PropTypes.element` | `undefined` |  | A custom loading view |
+| `loadingTitle` | `PropTypes.string` | `''` |  | The title for the default loading view |
+| `loadingTitleStyle` | `PropTypes.object` | `{}` |  | ... |
+| `loadingLoaderStyle` | `PropTypes.object` | `{}` |  | ... |
+| `placeholderView` | `PropTypes.element` | `undefined` |  | A custom placeholder view |
+| `placeholderImageRes` | `PropTypes.number.isRequirednumber` | NA | Yes | Image resource id of the placeholder view image |
+| `placeholderTitle` | `PropTypes.string` | `''` |  | Title text of the placeholder view |
+| `placeholderBody` | `PropTypes.string` | `''` |  | Body text of the placeholder view |
+| `placeholderButtonText` | `PropTypes.string` | `''` |  | Action button text of the placeholder view |
+| `placeholderButtonAction` | `PropTypes.func` | `() => {}` |  | Function that is executed when the placeholder view button is clicked. The button is not rendered if this is `null` or `undefined` |
+| `placeholderImageStyle` | `PropTypes.object` | `{}` |  | ... |
+| `placeholderTitleStyle` | `PropTypes.object` | `{}` |  | ... |
+| `placeholderBodyStyle` | `PropTypes.object` | `{}` |  | ... |
+| `placeholderButtonStyle` | `PropTypes.object` | `{}` |  | ... |
+| `placeholderButtonTextStyle` | `PropTypes.object` | `{}` |  | ... |
+| `errorView` | `PropTypes.element` | `undefined` |  | A custom error view |
+| `errorImageRes` | `PropTypes.number.isRequirednumber` | NA | Yes | Image resource id of the error view image |
+| `errorTitle` | `PropTypes.string` | `''` |  | Title text of the error view |
+| `errorBody` | `PropTypes.string` | `''` |  | Body text of the error view |
+| `errorButtonText` | `PropTypes.string` | `''` |  | Action button text of the error view |
+| `errorButtonAction` | `PropTypes.func` | `() => {}` |  | Function that is executed when the error view button is clicked. The button is not rendered if this is `null` or `undefined` |
+| `errorImageStyle` | `PropTypes.object` | `{}` |  | ... |
+| `errorTitleStyle` | `PropTypes.object` | `{}` |  | ... |
+| `errorBodyStyle` | `PropTypes.object` | `{}` |  | ... |
+| `errorButtonStyle` | `PropTypes.object` | `{}` |  | ... |
+| `errorButtonTextStyle` | `PropTypes.object` | `{}` |  | ... |
 
 ## License
 
