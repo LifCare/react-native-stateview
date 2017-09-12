@@ -15,12 +15,12 @@ export default class App extends React.Component {
     _getRandomStateViewMode = () => {
         switch (Math.floor(Math.random() * 3)) {
             case 0:
-                return StateView.Mode.content;
+                return StateView.State.content;
             case 1:
-                return StateView.Mode.error;
+                return StateView.State.error;
             case 2:
             default:
-                return StateView.Mode.placeholder;
+                return StateView.State.placeholder;
         }
     };
 
@@ -39,7 +39,7 @@ export default class App extends React.Component {
         this.setState({refreshing: true});
         setTimeout(() => {
             this.setState({
-                mode: this._getRandomStateViewMode(),
+                state: this._getRandomStateViewMode(),
                 refreshing: false
             });
         }, defaultDelay)
@@ -48,13 +48,13 @@ export default class App extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            mode: StateView.Mode.content,
+            state: StateView.State.content,
             refreshing: false,
             modes: [
-                {id: 0, name: "Loading", mode: StateView.Mode.loading},
-                {id: 1, name: "Content", mode: StateView.Mode.content},
-                {id: 2, name: "Error", mode: StateView.Mode.error},
-                {id: 3, name: "Placeholder", mode: StateView.Mode.placeholder}
+                {id: 0, name: "Loading", state: StateView.State.loading},
+                {id: 1, name: "Content", state: StateView.State.content},
+                {id: 2, name: "Error", state: StateView.State.error},
+                {id: 3, name: "Placeholder", state: StateView.State.placeholder}
             ]
 
         }
@@ -65,7 +65,7 @@ export default class App extends React.Component {
             <View style={styles.container}>
                 <StateView
                     style={styles.container}
-                    mode={this.state.mode}
+                    state={this.state.state}
                     loadingTitle="Loading dishes..."
                     placeholderImageRes={require("./icons/ic_pizza.png")}
                     placeholderTitle="We're all out!"
@@ -94,8 +94,8 @@ export default class App extends React.Component {
                             return (
                                 <Text
                                     key={item.id}
-                                    style={this.state.mode === item.mode ? styles.selected : styles.normal}
-                                    onPress={() => this.setState({mode: item.mode})}>
+                                    style={this.state.state === item.state ? styles.selected : styles.normal}
+                                    onPress={() => this.setState({state: item.state})}>
                                     {item.name}
                                 </Text>
                             )
