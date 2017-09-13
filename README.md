@@ -64,7 +64,6 @@ There are some props which you can use to configure the `StateView`, as given be
 | `loadingView` | `PropTypes.element` | `undefined` |  | A custom loading view. |
 | `loadingTitle` | `PropTypes.string` | `''` |  | The title for the default loading view. |
 | `loadingTitleStyle` | `PropTypes.object` | `{}` |  | Styles for title of loading view. Overrides the `titleStyle` and default styles. |
-| `loadingLoaderStyle` | `PropTypes.object` | `{}` |  | Styles for loader of loading view. |
 | `placeholderView` | `PropTypes.element` | `undefined` |  | A custom placeholder view |
 | `placeholderImageRes` | `PropTypes.number.isRequirednumber` | NA | Yes | Image resource id of the placeholder view image |
 | `placeholderTitle` | `PropTypes.string` | `''` |  | Title text of the placeholder view |

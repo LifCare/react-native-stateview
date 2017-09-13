@@ -6,6 +6,7 @@ import {
     Image,
     FlatList,
     TouchableOpacity,
+    ActivityIndicator,
 } from 'react-native';
 import StateView from 'react-native-stateview'
 import dishes from './dishes'
@@ -66,17 +67,69 @@ export default class App extends React.Component {
                 <StateView
                     style={styles.container}
                     state={this.state.state}
-                    loadingTitle="Loading dishes..."
+                    color="#5430EC"
+
+                    imageStyle={{
+                        width: 100,
+                        height: 100,
+                    }}
+                    placeholderTitleStyle={{
+                        color: '#5430EC',
+                        fontSize: 30
+                    }}
+                    buttonStyle={{
+                        borderRadius: 100,
+                        shadowColor: '#333',
+                        shadowOpacity: .6,
+                        shadowOffset: {
+                            width: 0,
+                            height: 3
+                        }
+                    }}
+
+                    loadingView={(
+                        <View>
+                            <ActivityIndicator
+                                color="#24B32D"
+                                size="large"/>
+                            <Text style={{
+                                fontSize: 20,
+                                textAlign: 'center',
+                                marginTop: 20,
+                                color: '#24B32D',
+                                fontWeight: 'bold'
+                            }}>
+                                Let me see what's cooking...
+                            </Text>
+                        </View>
+                    )}
+
                     placeholderImageRes={require("./icons/ic_pizza.png")}
                     placeholderTitle="We're all out!"
                     placeholderBody={`It looks like we all out of dishes.\nCome back tomorrow for a nice slice of pizza!`}
                     placeholderButtonText="How about now?"
                     placeholderButtonAction={() => this._handleRefresh(0)}
+
                     errorImageRes={require("./icons/ic_salt.png")}
                     errorTitle="Eh?! This shouldn't be happening"
                     errorBody="Don't get so salty. We're working on it!"
                     errorButtonText="FIX IT NOW!"
                     errorButtonAction={() => this._handleRefresh(0)}
+                    errorTitleStyle={{
+                        color: '#E83F6F',
+                        fontSize: 25
+                    }}
+                    errorBodyStyle={{
+                        color: '#E83F6F',
+                        marginTop: 10,
+                        fontSize: 15
+                    }}
+                    errorButtonStyle={{
+                        backgroundColor: '#E83F6F'
+                    }}
+                    errorButtonTextStyle={{
+                        color: '#fff2f6'
+                    }}
                 >
                     <FlatList
                         style={{flex: 1, marginTop: 20, overflow: 'visible'}}
@@ -126,14 +179,14 @@ const styles = StyleSheet.create({
         fontSize: 14,
         textAlign: "center",
         backgroundColor: "#fff",
-        color: "#5430ec"
+        color: "#5430EC"
     },
     selected: {
         flex: 1,
         paddingVertical: 10,
         fontSize: 14,
         textAlign: "center",
-        backgroundColor: "#5430ec",
+        backgroundColor: "#5430EC",
         color: "#fff"
     }
 });
