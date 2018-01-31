@@ -15,7 +15,7 @@
     "type": "git",
     "url": "git+https://github.com/LifCare/react-native-stateview.git"
   },
-   "tags": [
+  "tags": [
     "react",
     "react-native",
     "react-component"
@@ -42,5 +42,8 @@
     "eslint-plugin-flowtype": "^2.35.0",
     "eslint-plugin-react": "^7.1.0",
     "flow-bin": "0.47.0"
+  },
+  "dependencies": {
+    "prop-types": "^15.6.0"
   }
 }
